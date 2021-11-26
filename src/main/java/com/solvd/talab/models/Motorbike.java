@@ -10,11 +10,11 @@ public class Motorbike extends Vehicle implements IStunts {
 
     public Motorbike(String licensePlate, String brand, float maxSpeed, String bikeType) throws NegativeSpeedException, InvalidCharacter {
         super(licensePlate, brand, maxSpeed);
-        this.bikeType=bikeType;
+        this.bikeType = bikeType;
     }
 
     @Override
-    public void wheelie(){
+    public void wheelie() {
         System.out.println("The bike its doing wheelie, be careful");
     }
 
@@ -25,16 +25,16 @@ public class Motorbike extends Vehicle implements IStunts {
 
     @Override
     public void run() {
-        System.out.println("The " +bikeType +" motorbike its running");
+        System.out.println("The " + bikeType + " motorbike its running");
     }
 
-    public void run(float speed){
-        System.out.println("the motorbike is running at: " +speed +"km/h");
+    public void run(float speed) {
+        System.out.println("the motorbike is running at: " + speed + "km/h");
     }
 
     @Override
     public void stop() {
-        System.out.println("The " +bikeType +" motorbike was stopped");
+        System.out.println("The " + bikeType + " motorbike was stopped");
     }
 
     public String getBikeType() {
@@ -50,11 +50,11 @@ public class Motorbike extends Vehicle implements IStunts {
         return super.toString() + '\'' +
                 ", bikeType='" + bikeType + '\'';
     }
+
     @Override
     public void changeWheels(int wheels) {
-        System.out.println("the motorbike has" +wheels +" new wheels");
+        System.out.println("the motorbike has" + wheels + " new wheels");
     }
-
 
 
 }

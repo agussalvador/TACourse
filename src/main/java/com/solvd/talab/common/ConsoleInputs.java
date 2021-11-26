@@ -2,7 +2,6 @@ package com.solvd.talab.common;
 
 import java.io.*;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.solvd.talab.common.LoggerClass.LOGGER;
 
@@ -26,26 +25,26 @@ public class ConsoleInputs {
     }
 
     //Method to write file
-    public static void writeFileOutputStream(){
+    public static void writeFileOutputStream() {
         // Using try-with-resources
-        try(FileOutputStream fileOutputStream =new FileOutputStream(filePath)){
+        try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
             String msg = stringInput();
             byte byteArray[] = msg.getBytes(); //converting string into byte array
             fileOutputStream.write(byteArray);
             LOGGER.log(Level.INFO, "Message written to file successfuly!");
-        }catch(Exception exception){
+        } catch (Exception exception) {
             LOGGER.log(Level.INFO, exception.getMessage());
         }
     }
 
-    public static void printFile(String fileName){
+    public static void printFile(String fileName) {
         File file = new File(fileName);
         int n = -1;
-        byte []b = new byte[100];
+        byte[] b = new byte[100];
         try {
             FileInputStream f = new FileInputStream(file);
-            while ((n = f.read(b,0,50))!=-1) {
-                String str = new String(b,0,n,"utf-8");
+            while ((n = f.read(b, 0, 50)) != -1) {
+                String str = new String(b, 0, n, "utf-8");
                 LOGGER.log(Level.INFO, "This is the file content: " + str);
                 System.out.println(str);
             }

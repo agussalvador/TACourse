@@ -21,49 +21,53 @@ public class VehicleDealership {
     public String getName() {
         return name;
     }
+
     public float getEarnings() {
         return earnings;
     }
-    public ArrayList<Car> getCarsCatalog(){
+
+    public ArrayList<Car> getCarsCatalog() {
         ArrayList<Car> cars = new ArrayList<>();
-        for(Vehicle v: vehicles){
-            if (v instanceof Car){
+        for (Vehicle v : vehicles) {
+            if (v instanceof Car) {
                 cars.add((Car) v);
             }
         }
         return cars;
     }
-    public ArrayList<Motorbike> getMotorbikeCatalog(){
+
+    public ArrayList<Motorbike> getMotorbikeCatalog() {
         ArrayList<Motorbike> motos = new ArrayList<>();
-        for(Vehicle v: vehicles){
-            if (v instanceof Motorbike){
+        for (Vehicle v : vehicles) {
+            if (v instanceof Motorbike) {
                 motos.add((Motorbike) v);
             }
         }
         return motos;
     }
 
-    public void buyVehicle(Vehicle newV){
+    public void buyVehicle(Vehicle newV) {
         this.vehicles.add(newV);
     }
-    public void sellVehicle(Vehicle vehicle, float price){
+
+    public void sellVehicle(Vehicle vehicle, float price) {
         this.vehicles.remove(vehicle);
-        this.earnings+=price;
+        this.earnings += price;
     }
 
-    public void printCatalog(String vehicleType){
+    public void printCatalog(String vehicleType) {
 
-        if(vehicleType.matches("Car")){
+        if (vehicleType.matches("Car")) {
             ArrayList<Car> vehicles = this.getCarsCatalog();
-            for (Car cars: vehicles) {
+            for (Car cars : vehicles) {
                 LOGGER.log(Level.INFO, cars.toString());
             }
-        } else if(vehicleType.matches("Motorbike")){
+        } else if (vehicleType.matches("Motorbike")) {
             ArrayList<Motorbike> vehicles = this.getMotorbikeCatalog();
-            for (Motorbike motos: vehicles) {
+            for (Motorbike motos : vehicles) {
                 LOGGER.log(Level.INFO, motos.toString());
             }
-        }else{
+        } else {
             LOGGER.log(Level.WARNING, "Vehicle type doesn't exists.");
         }
     }
@@ -71,7 +75,7 @@ public class VehicleDealership {
 
     @Override
     public String toString() {
-        return "CarDealership name: "+ name +
+        return "CarDealership name: " + name +
                 ", address:" + address +
                 ", earnings:" + earnings +
                 ", count of vehicles:" + vehicles.size();

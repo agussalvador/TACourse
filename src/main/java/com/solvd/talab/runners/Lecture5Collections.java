@@ -21,22 +21,22 @@ public class Lecture5Collections {
         Car ford2 = null;
 
         try {
-            v1 = new Car("AA123AA","Ford",180,"Diesel");
-            v2 = new Motorbike("BB456BB","Honda",160,"Cross");
-            v3 = new Car("CC789CC","Toyota",230,"Diesel");
+            v1 = new Car("AA123AA", "Ford", 180, "Diesel");
+            v2 = new Motorbike("BB456BB", "Honda", 160, "Cross");
+            v3 = new Car("CC789CC", "Toyota", 230, "Diesel");
             v4 = v1;
-            ford1 = new Car("AA156FV","Ford",190,"Diesel");
-            ford2 = new Car("BG659FV","Ford",197,"Diesel");
+            ford1 = new Car("AA156FV", "Ford", 190, "Diesel");
+            ford2 = new Car("BG659FV", "Ford", 197, "Diesel");
 
         } catch (InvalidCharacter e) {
             LOGGER.log(Level.INFO, e.getMessage());
         }
 
         //Garage: Parking vehicles
-        garage1.parkingVehicle(v1,45);
-        garage1.parkingVehicle(v2,30);
-        garage1.parkingVehicle(v3,1);
-        garage1.parkingVehicle(v4,70);
+        garage1.parkingVehicle(v1, 45);
+        garage1.parkingVehicle(v2, 30);
+        garage1.parkingVehicle(v3, 1);
+        garage1.parkingVehicle(v4, 70);
 
         //Garage: Unpark vehicle
         garage1.unparkVehicle(45);
@@ -47,13 +47,13 @@ public class Lecture5Collections {
         vehicleDealership1.buyVehicle(ford2);
 
         //VehicleDealership ford sell
-        vehicleDealership1.sellVehicle(v1,55000);
+        vehicleDealership1.sellVehicle(v1, 55000);
 
         //VehicleDealership ford earnings
-        LOGGER.log(Level.INFO, "Vehicle Dealership: "+vehicleDealership1.getName() +"Earnings: " +vehicleDealership1.getEarnings());
+        LOGGER.log(Level.INFO, "Vehicle Dealership: " + vehicleDealership1.getName() + "Earnings: " + vehicleDealership1.getEarnings());
         //VehicleDealership ford catalog
 
-        LOGGER.log(Level.INFO, "Vehicle Dealership: "+vehicleDealership1.getName() + " Catalog: ");
+        LOGGER.log(Level.INFO, "Vehicle Dealership: " + vehicleDealership1.getName() + " Catalog: ");
         vehicleDealership1.printCatalog("Car");
 
 

@@ -10,7 +10,7 @@ public class Garage {
     private String name;
     private String address;
     private int maxPlaces;
-    private LinkedHashMap<Integer,Vehicle> vehicles;
+    private LinkedHashMap<Integer, Vehicle> vehicles;
 
     public Garage(String name, String address, int maxPlaces) {
         this.name = name;
@@ -20,17 +20,17 @@ public class Garage {
     }
 
     public void parkingVehicle(Vehicle vehicle, int parkingPlace) {
-        if(parkingPlace<= maxPlaces)
+        if (parkingPlace <= maxPlaces)
             this.vehicles.put(parkingPlace, vehicle);
         else
-            LOGGER.log(Level.INFO, "Garage limits places is: " +maxPlaces);
+            LOGGER.log(Level.INFO, "Garage limits places is: " + maxPlaces);
     }
 
     public Vehicle unparkVehicle(int parkingPlace) {
         return this.vehicles.remove(parkingPlace);
     }
 
-    public int countParkVehicles(){
+    public int countParkVehicles() {
         return this.vehicles.size();
     }
 

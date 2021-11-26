@@ -15,21 +15,21 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
     private String brand;
     private float maxSpeed;
     //Final Attribute
-    public final static int  MAX_SPEED_ON_CITY = 60;
+    public final static int MAX_SPEED_ON_CITY = 60;
 
     public Vehicle(String licensePlate, String brand, float maxSpeed) throws NegativeSpeedException, InvalidCharacter {
 
         this.brand = brand;
         //Check if the speed is greater than 0 I throw NegativeSpeedException
-        if(maxSpeed < 0)
+        if (maxSpeed < 0)
             throw new NegativeSpeedException();
         else
             this.maxSpeed = maxSpeed;
         //Check if the license plate has invalid characters
-        if(ValidationsFunctions.checkInvalidCharacter(licensePlate)) {
+        if (ValidationsFunctions.checkInvalidCharacter(licensePlate)) {
             try {
                 //Check if the license plate has invalid format
-                if(ValidationsFunctions.checkLicensePlateFormat(licensePlate))
+                if (ValidationsFunctions.checkLicensePlateFormat(licensePlate))
                     this.licensePlate = licensePlate;
             } catch (InvalidFormat e) {
                 e.getMessage();
@@ -61,7 +61,7 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
         return
                 "LicensePlate='" + licensePlate + '\'' +
                         ", brand='" + brand + '\'' +
-                        ", speed=" + maxSpeed ;
+                        ", speed=" + maxSpeed;
     }
 
     /*
@@ -99,12 +99,12 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
 
     //Task 3
     //Final method cannot be overridden
-    public final void finalMethod(){
+    public final void finalMethod() {
         System.out.println("This method cannot be overridden");
     }
 
     //Static method
-    public static void staticMethod(){
+    public static void staticMethod() {
         System.out.println("This is a static method");
     }
 

@@ -2,8 +2,6 @@ package com.solvd.talab.models;
 
 import com.solvd.talab.generics.GenericLinkedList;
 
-import java.util.ArrayList;
-
 public class CarWash {
     private String name;
     private String address;
@@ -19,16 +17,17 @@ public class CarWash {
     public GenericLinkedList<Vehicle> getVehicleQueue() {
         return vehicleQueue;
     }
-    public void addVehicle(Vehicle newVehicle){
+
+    public void addVehicle(Vehicle newVehicle) {
         vehicleQueue.insert(newVehicle);
     }
 
-    public void washVehicle(){
+    public void washVehicle() {
         vehicleQueue.deleteFirst();
     }
 
     @Override
     public String toString() {
-        return "CarWash name: " + name +" ,address: " + address + " ,queue length: " + vehicleQueue.length();
+        return "CarWash name: " + name + " ,address: " + address + " ,queue length: " + vehicleQueue.length();
     }
 }
