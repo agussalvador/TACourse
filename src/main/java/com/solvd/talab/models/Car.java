@@ -1,23 +1,36 @@
 package com.solvd.talab.models;
 
+import com.solvd.talab.enums.CarEngineType;
+import com.solvd.talab.enums.CarModel;
 import com.solvd.talab.exceptions.InvalidCharacter;
 import com.solvd.talab.exceptions.NegativeSpeedException;
 
 public class Car extends Vehicle {
 
-    private String engine;
 
-    public Car(String licensePlate, String brand, float maxSpeed, String engine) throws NegativeSpeedException, InvalidCharacter {
-        super(licensePlate, brand, maxSpeed);
+    private Enum<CarEngineType> engine;
+    private Enum<CarModel> model;
+
+    public Car(String licensePlate, float maxSpeed, Enum<CarEngineType> engine, Enum<CarModel> model) throws NegativeSpeedException, InvalidCharacter {
+        super(licensePlate, maxSpeed);
         this.engine = engine;
+        this.model = model;
     }
 
-    public String getEngine() {
+    public Enum<CarEngineType> getEngine() {
         return engine;
     }
 
-    public void setEngine(String engine) {
+    public void setEngine(Enum<CarEngineType> engine) {
         this.engine = engine;
+    }
+
+    public Enum<CarModel> getModel() {
+        return model;
+    }
+
+    public void setModel(Enum<CarModel> model) {
+        this.model = model;
     }
 
     public void reverse() {

@@ -43,13 +43,13 @@ public class CalculateWords {
         try {
             String fileContent = readFileToString(file, (String) null);
 
-            //Split content
+            //Split content. Maybe I could improve this regex usage.
             String temp[] = fileContent.split("\\s+|\n+|\t+");
 
             for (String s : temp) {
                 uniqueWords.add(s);
             }
-            
+
             return uniqueWords.size();
         } catch (IOException e) {
             LOGGER.log(Level.INFO, e.getMessage());

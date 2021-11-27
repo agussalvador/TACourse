@@ -12,14 +12,12 @@ import java.util.Objects;
 public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
 
     private String licensePlate;
-    private String brand;
     private float maxSpeed;
     //Final Attribute
     public final static int MAX_SPEED_ON_CITY = 60;
 
-    public Vehicle(String licensePlate, String brand, float maxSpeed) throws NegativeSpeedException, InvalidCharacter {
+    public Vehicle(String licensePlate, float maxSpeed) throws NegativeSpeedException, InvalidCharacter {
 
-        this.brand = brand;
         //Check if the speed is greater than 0 I throw NegativeSpeedException
         if (maxSpeed < 0)
             throw new NegativeSpeedException();
@@ -47,20 +45,12 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
         this.licensePlate = licensePlate;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
 
     @Override
     public String toString() {
         return
                 "LicensePlate='" + licensePlate + '\'' +
-                        ", brand='" + brand + '\'' +
                         ", speed=" + maxSpeed;
     }
 

@@ -1,15 +1,16 @@
 package com.solvd.talab.models;
 
+import com.solvd.talab.enums.MotorbikeType;
 import com.solvd.talab.exceptions.InvalidCharacter;
 import com.solvd.talab.exceptions.NegativeSpeedException;
 import com.solvd.talab.interfaces.IStunts;
 
 public class Motorbike extends Vehicle implements IStunts {
-    private String bikeType;
+    private Enum<MotorbikeType> bikeType;
 
 
-    public Motorbike(String licensePlate, String brand, float maxSpeed, String bikeType) throws NegativeSpeedException, InvalidCharacter {
-        super(licensePlate, brand, maxSpeed);
+    public Motorbike(String licensePlate, float maxSpeed, Enum<MotorbikeType> bikeType) throws NegativeSpeedException, InvalidCharacter {
+        super(licensePlate,maxSpeed);
         this.bikeType = bikeType;
     }
 
@@ -37,11 +38,11 @@ public class Motorbike extends Vehicle implements IStunts {
         System.out.println("The " + bikeType + " motorbike was stopped");
     }
 
-    public String getBikeType() {
+    public Enum<MotorbikeType> getBikeType() {
         return bikeType;
     }
 
-    public void setBikeType(String bikeType) {
+    public void setBikeType(Enum<MotorbikeType> bikeType) {
         this.bikeType = bikeType;
     }
 

@@ -1,12 +1,26 @@
 package com.solvd.talab.models;
 
+import com.solvd.talab.enums.CarWashType;
 import com.solvd.talab.generics.GenericLinkedList;
+import com.solvd.talab.interfaces.WashProcessor;
+
+import java.util.logging.Level;
+
+import static com.solvd.talab.common.LoggerClass.LOGGER;
 
 public class CarWash {
     private String name;
     private String address;
+    private Enum<CarWashType> type;
     //Queue works with FIFO(First in first out) we insert new vehicles at the end of the queue.
     private GenericLinkedList<Vehicle> vehicleQueue;
+
+    public CarWash(String name, String address, Enum<CarWashType> type) {
+        this.name = name;
+        this.address = address;
+        this.type = type;
+        this.vehicleQueue = new GenericLinkedList<Vehicle>();
+    }
 
     public CarWash(String name, String address) {
         this.name = name;
@@ -16,6 +30,10 @@ public class CarWash {
 
     public GenericLinkedList<Vehicle> getVehicleQueue() {
         return vehicleQueue;
+    }
+
+    public Enum<CarWashType> getType() {
+        return type;
     }
 
     public void addVehicle(Vehicle newVehicle) {
@@ -28,6 +46,13 @@ public class CarWash {
 
     @Override
     public String toString() {
-        return "CarWash name: " + name + " ,address: " + address + " ,queue length: " + vehicleQueue.length();
+        return "CarWash name: " + name + " ,address: " + address + " ,queue length: " + vehicleQueue.length() + "type: " +type;
     }
+
+    public float wash(WashProcessor washProcessor){
+        float price = washProcessor.wash();
+        washVehicle();
+        return price;
+    }
+
 }

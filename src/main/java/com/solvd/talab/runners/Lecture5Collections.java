@@ -1,5 +1,8 @@
 package com.solvd.talab.runners;
 
+import com.solvd.talab.enums.CarEngineType;
+import com.solvd.talab.enums.CarModel;
+import com.solvd.talab.enums.MotorbikeType;
 import com.solvd.talab.exceptions.InvalidCharacter;
 import com.solvd.talab.models.*;
 
@@ -21,12 +24,12 @@ public class Lecture5Collections {
         Car ford2 = null;
 
         try {
-            v1 = new Car("AA123AA", "Ford", 180, "Diesel");
-            v2 = new Motorbike("BB456BB", "Honda", 160, "Cross");
-            v3 = new Car("CC789CC", "Toyota", 230, "Diesel");
+            v1 = new Car("AA123AA", 180, CarEngineType.COMBUSTION, CarModel.FORD);
+            v2 = new Motorbike("BB456BB",  160, MotorbikeType.CROSS);
+            v3 = new Car("CC789CC",  230, CarEngineType.COMBUSTION,CarModel.RENAULT);
             v4 = v1;
-            ford1 = new Car("AA156FV", "Ford", 190, "Diesel");
-            ford2 = new Car("BG659FV", "Ford", 197, "Diesel");
+            ford1 = new Car("AA156FV",  190, CarEngineType.COMBUSTION,CarModel.FORD);
+            ford2 = new Car("BG659FV",  197, CarEngineType.COMBUSTION,CarModel.FORD);
 
         } catch (InvalidCharacter e) {
             LOGGER.log(Level.INFO, e.getMessage());
