@@ -1,6 +1,9 @@
 package com.solvd.talab.models;
 
+import com.solvd.talab.interfaces.SpeedProcessor;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 import static com.solvd.talab.common.LoggerClass.LOGGER;
@@ -81,5 +84,9 @@ public class VehicleDealership {
                 ", count of vehicles:" + vehicles.size();
     }
 
+    //Lecture 8 lambdas functions
+    public float fasterVehicle(float speed, float kilometers, SpeedProcessor processor){
+        return processor.avgSpeed(speed,kilometers);
+    }
 
 }

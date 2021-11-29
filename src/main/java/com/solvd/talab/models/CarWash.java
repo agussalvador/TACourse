@@ -49,9 +49,8 @@ public class CarWash {
         return "CarWash name: " + name + " ,address: " + address + " ,queue length: " + vehicleQueue.length() + "type: " +type;
     }
 
-    public float wash(WashProcessor washProcessor){
-        float price = washProcessor.wash();
-        washVehicle();
+    public float wash(float time,WashProcessor washProcessor){
+        float price = washProcessor.wash(time);
         return price;
     }
 

@@ -7,16 +7,53 @@ import com.solvd.talab.exceptions.NegativeSpeedException;
 import com.solvd.talab.interfaces.IVehicleMaintenance;
 import com.solvd.talab.interfaces.IVehicleMovement;
 
+import java.util.Locale;
 import java.util.Objects;
+import java.util.function.Function;
 
 public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
 
     private String licensePlate;
     private float maxSpeed;
+    private float kilometers;
+
+    public float getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public float getKilometers() {
+        return kilometers;
+    }
+
     //Final Attribute
     public final static int MAX_SPEED_ON_CITY = 60;
 
+    public Vehicle(String licensePlate, float maxSpeed, float kilometers)throws NegativeSpeedException, InvalidCharacter  {
+        this.kilometers = kilometers;
+        //When we create a vehicle, license plate will be convert to uppercase
+        licensePlate=formatLicensePlate(licensePlate, str -> str.toUpperCase());
+
+        //Check if the speed is greater than 0 I throw NegativeSpeedException
+        if (maxSpeed < 0)
+            throw new NegativeSpeedException();
+        else
+            this.maxSpeed = maxSpeed;
+        //Check if the license plate has invalid characters
+        if (ValidationsFunctions.checkInvalidCharacter(licensePlate)) {
+            try {
+                //Check if the license plate has invalid format
+                if (ValidationsFunctions.checkLicensePlateFormat(licensePlate))
+                    this.licensePlate = licensePlate;
+            } catch (InvalidFormat e) {
+                e.getMessage();
+            }
+        }
+    }
+
     public Vehicle(String licensePlate, float maxSpeed) throws NegativeSpeedException, InvalidCharacter {
+        this.kilometers =0f;
+        //When we create a vehicle, license plate will be convert to uppercase
+        licensePlate=formatLicensePlate(licensePlate, str -> str.toUpperCase());
 
         //Check if the speed is greater than 0 I throw NegativeSpeedException
         if (maxSpeed < 0)
@@ -96,6 +133,11 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
     //Static method
     public static void staticMethod() {
         System.out.println("This is a static method");
+    }
+
+    //Task 8 Lambda functions
+    private static String formatLicensePlate(String lp, Function<String,String> processor){
+        return processor.apply(lp);
     }
 
 

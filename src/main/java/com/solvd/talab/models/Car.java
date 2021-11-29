@@ -17,6 +17,12 @@ public class Car extends Vehicle {
         this.model = model;
     }
 
+    public Car(String licensePlate, float maxSpeed, float kilometers, Enum<CarEngineType> engine, Enum<CarModel> model) throws NegativeSpeedException, InvalidCharacter {
+        super(licensePlate, maxSpeed, kilometers);
+        this.engine = engine;
+        this.model = model;
+    }
+
     public Enum<CarEngineType> getEngine() {
         return engine;
     }
