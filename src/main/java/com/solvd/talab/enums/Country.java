@@ -3,7 +3,7 @@ package com.solvd.talab.enums;
 public enum Country {
     ARGENTINA("Argentinian"),
     ITALY("Italian"),
-    JAPAN ("Japanese"),
+    JAPAN("Japanese"),
     GERMANY("German"),
     FRANCE("French"),
     USA("North Americans"),

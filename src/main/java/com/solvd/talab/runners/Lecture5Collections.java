@@ -25,11 +25,11 @@ public class Lecture5Collections {
 
         try {
             v1 = new Car("AA123AA", 180, CarEngineType.COMBUSTION, CarModel.FORD);
-            v2 = new Motorbike("BB456BB",  160, MotorbikeType.CROSS);
-            v3 = new Car("CC789CC",  230, CarEngineType.COMBUSTION,CarModel.RENAULT);
+            v2 = new Motorbike("BB456BB", 160, MotorbikeType.CROSS);
+            v3 = new Car("CC789CC", 230, CarEngineType.COMBUSTION, CarModel.RENAULT);
             v4 = v1;
-            ford1 = new Car("AA156FV",  190, CarEngineType.COMBUSTION,CarModel.FORD);
-            ford2 = new Car("BG659FV",  197, CarEngineType.COMBUSTION,CarModel.FORD);
+            ford1 = new Car("AA156FV", 190, CarEngineType.COMBUSTION, CarModel.FORD);
+            ford2 = new Car("BG659FV", 197, CarEngineType.COMBUSTION, CarModel.FORD);
 
         } catch (InvalidCharacter e) {
             LOGGER.log(Level.INFO, e.getMessage());

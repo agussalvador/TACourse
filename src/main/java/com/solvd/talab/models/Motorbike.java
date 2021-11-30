@@ -10,7 +10,7 @@ public class Motorbike extends Vehicle implements IStunts {
 
 
     public Motorbike(String licensePlate, float maxSpeed, Enum<MotorbikeType> bikeType) throws NegativeSpeedException, InvalidCharacter {
-        super(licensePlate,maxSpeed);
+        super(licensePlate, maxSpeed);
         this.bikeType = bikeType;
     }
 

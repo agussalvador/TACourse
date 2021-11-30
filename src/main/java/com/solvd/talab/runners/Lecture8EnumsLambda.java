@@ -10,6 +10,7 @@ import com.solvd.talab.models.Vehicle;
 import com.solvd.talab.models.VehicleDealership;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.logging.Level;
@@ -26,9 +27,9 @@ public class Lecture8EnumsLambda {
         Car ford2 = null;
         Car fiat = null;
         try {
-            ford1 = new Car("aA123AA", 220,52040f, CarEngineType.COMBUSTION, CarModel.FORD);
-            ford2 = new Car("cc193fr", 240,23400f, CarEngineType.ELECTRIC, CarModel.FORD);
-            fiat = new Car("BB567NA", 190,40000f, CarEngineType.COMBUSTION, CarModel.FIAT);
+            ford1 = new Car("aA123AA", 220, 52040f, CarEngineType.COMBUSTION, CarModel.FORD);
+            ford2 = new Car("cc193fr", 240, 23400f, CarEngineType.ELECTRIC, CarModel.FORD);
+            fiat = new Car("BB567NA", 190, 40000f, CarEngineType.COMBUSTION, CarModel.FIAT);
             //Adding cars to lists
             carWash1.addVehicle(ford1);
             carWash1.addVehicle(fiat);
@@ -46,28 +47,35 @@ public class Lecture8EnumsLambda {
                     carWash1.wash(1.3f + (float) i, (time) -> CarWashType.SELF_SERVICE.getPrice() * time));
         }
         //Faster car
-        for (Car c: fordOficial.getCarsCatalog()) {
+        for (Car c : fordOficial.getCarsCatalog()) {
             LOGGER.log(Level.INFO, "License plate: " + c.getLicensePlate() + " average speed: " +
-                    fordOficial.fasterVehicle(c.getMaxSpeed(),c.getKilometers(), (speed,km)-> km/speed));
+                    fordOficial.fasterVehicle(c.getMaxSpeed(), c.getKilometers(), (speed, km) -> km / speed));
         }
 
         //java.util.function
         //In class vehicle at the constructor I use interface Function<T,R> on "formatLicensePlate" method
         LOGGER.log(Level.INFO, "BiFunction usage: " +
-                process("Example lambda function",7, (str,i)-> str.substring(i)));
+                process("Example lambda function", 7, (str, i) -> str.substring(i)));
 
         //Concat Model with license plate
-        for (Car c: fordOficial.getCarsCatalog()) {
-            LOGGER.log(Level.INFO,  concat("-"+c.getLicensePlate(), c.getModel().name()::concat));
+        for (Car c : fordOficial.getCarsCatalog()) {
+            LOGGER.log(Level.INFO, concat("-" + c.getLicensePlate(), c.getModel().name()::concat));
+            biConsumer(CarModel.FORD.getCountry().toString(), c.getModel().toString(),
+                    (ctry, model) -> LOGGER.log(Level.INFO, c + model.concat(ctry)));
         }
 
 
     }
 
-    private static String process(String str, int i, BiFunction<String,Integer,String> processor){
-        return processor.apply(str,i);
+    private static void biConsumer(String country, String model, BiConsumer<String, String> processor) {
+        processor.accept(country, model);
     }
-    private static String concat(String str, Function<String,String> processor){
+
+    private static String process(String str, int i, BiFunction<String, Integer, String> processor) {
+        return processor.apply(str, i);
+    }
+
+    private static String concat(String str, Function<String, String> processor) {
         return processor.apply(str);
     }
 }

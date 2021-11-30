@@ -10,6 +10,7 @@ public enum CarWashType {
     private CarWashType(float price) {
         this.price = price;
     }
+
     public float getPrice() {
         return price;
     }

@@ -46,10 +46,10 @@ public class CarWash {
 
     @Override
     public String toString() {
-        return "CarWash name: " + name + " ,address: " + address + " ,queue length: " + vehicleQueue.length() + "type: " +type;
+        return "CarWash name: " + name + " ,address: " + address + " ,queue length: " + vehicleQueue.length() + "type: " + type;
     }
 
-    public float wash(float time,WashProcessor washProcessor){
+    public float wash(float time, WashProcessor washProcessor) {
         float price = washProcessor.wash(time);
         return price;
     }

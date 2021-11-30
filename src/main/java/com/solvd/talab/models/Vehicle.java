@@ -28,10 +28,10 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
     //Final Attribute
     public final static int MAX_SPEED_ON_CITY = 60;
 
-    public Vehicle(String licensePlate, float maxSpeed, float kilometers)throws NegativeSpeedException, InvalidCharacter  {
+    public Vehicle(String licensePlate, float maxSpeed, float kilometers) throws NegativeSpeedException, InvalidCharacter {
         this.kilometers = kilometers;
         //When we create a vehicle, license plate will be convert to uppercase
-        licensePlate=formatLicensePlate(licensePlate, str -> str.toUpperCase());
+        licensePlate = formatLicensePlate(licensePlate, str -> str.toUpperCase());
 
         //Check if the speed is greater than 0 I throw NegativeSpeedException
         if (maxSpeed < 0)
@@ -51,9 +51,9 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
     }
 
     public Vehicle(String licensePlate, float maxSpeed) throws NegativeSpeedException, InvalidCharacter {
-        this.kilometers =0f;
+        this.kilometers = 0f;
         //When we create a vehicle, license plate will be convert to uppercase
-        licensePlate=formatLicensePlate(licensePlate, str -> str.toUpperCase());
+        licensePlate = formatLicensePlate(licensePlate, str -> str.toUpperCase());
 
         //Check if the speed is greater than 0 I throw NegativeSpeedException
         if (maxSpeed < 0)
@@ -81,7 +81,6 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
     }
-
 
 
     @Override
@@ -136,7 +135,7 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
     }
 
     //Task 8 Lambda functions
-    private static String formatLicensePlate(String lp, Function<String,String> processor){
+    private static String formatLicensePlate(String lp, Function<String, String> processor) {
         return processor.apply(lp);
     }
 

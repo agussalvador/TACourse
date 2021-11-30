@@ -85,8 +85,8 @@ public class VehicleDealership {
     }
 
     //Lecture 8 lambdas functions
-    public float fasterVehicle(float speed, float kilometers, SpeedProcessor processor){
-        return processor.avgSpeed(speed,kilometers);
+    public float fasterVehicle(float speed, float kilometers, SpeedProcessor processor) {
+        return processor.avgSpeed(speed, kilometers);
     }
 
 }
