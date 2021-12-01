@@ -8,6 +8,7 @@ import java.util.logging.Level;
 
 import static com.solvd.talab.common.LoggerClass.LOGGER;
 import static org.apache.commons.io.FileUtils.*;
+import static org.apache.commons.lang3.StringUtils.*;
 
 
 public class CalculateWords {
@@ -31,12 +32,11 @@ public class CalculateWords {
         LOGGER.log(Level.INFO, "===================");
         //String utils methods.
 
-        LOGGER.log(Level.INFO, "To lower case: " + strings.toLowerCase());
-        LOGGER.log(Level.INFO, "To upper case: " + strings.toUpperCase());
-        LOGGER.log(Level.INFO, (strings.isEmpty()) ? "Is empty" : "Not empty");
-        LOGGER.log(Level.INFO, "Text content: ".concat(strings));
-        String asf = strings.substring(3);
-        LOGGER.log(Level.INFO, "Substring: " + strings.substring(3));
+        LOGGER.log(Level.INFO, "To lower case: " + lowerCase(strings));
+        LOGGER.log(Level.INFO, "To upper case: " + upperCase(strings));
+        LOGGER.log(Level.INFO, (isEmpty(strings)) ? "Is empty" : "Not empty");
+        LOGGER.log(Level.INFO, "Text contains !: "+ contains(strings,"!"));
+        LOGGER.log(Level.INFO, "Substring: " + substring(strings,3));
 
     }
 
@@ -64,7 +64,7 @@ public class CalculateWords {
             String fileContent = readFileToString(file, (String) null);
 
             //Split content. Maybe I could improve this regex usage.
-            String[] temp = fileContent.split("\\s+|\n+|\t+");
+            String[] temp = split(fileContent,"\\s+|\n+|\t+");
 
             uniqueWords.addAll(Arrays.asList(temp));
 
