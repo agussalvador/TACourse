@@ -7,7 +7,6 @@ import com.solvd.talab.exceptions.NegativeSpeedException;
 import com.solvd.talab.interfaces.IVehicleMaintenance;
 import com.solvd.talab.interfaces.IVehicleMovement;
 
-import java.util.Locale;
 import java.util.Objects;
 import java.util.function.Function;
 

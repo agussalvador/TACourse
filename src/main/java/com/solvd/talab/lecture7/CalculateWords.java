@@ -7,7 +7,8 @@ import java.util.HashSet;
 import java.util.logging.Level;
 
 import static com.solvd.talab.common.LoggerClass.LOGGER;
-import static org.apache.commons.io.FileUtils.*;
+import static org.apache.commons.io.FileUtils.readFileToString;
+import static org.apache.commons.io.FileUtils.writeStringToFile;
 import static org.apache.commons.lang3.StringUtils.*;
 
 
@@ -35,8 +36,8 @@ public class CalculateWords {
         LOGGER.log(Level.INFO, "To lower case: " + lowerCase(strings));
         LOGGER.log(Level.INFO, "To upper case: " + upperCase(strings));
         LOGGER.log(Level.INFO, (isEmpty(strings)) ? "Is empty" : "Not empty");
-        LOGGER.log(Level.INFO, "Text contains !: "+ contains(strings,"!"));
-        LOGGER.log(Level.INFO, "Substring: " + substring(strings,3));
+        LOGGER.log(Level.INFO, "Text contains !: " + contains(strings, "!"));
+        LOGGER.log(Level.INFO, "Substring: " + substring(strings, 3));
 
     }
 
@@ -64,7 +65,7 @@ public class CalculateWords {
             String fileContent = readFileToString(file, (String) null);
 
             //Split content. Maybe I could improve this regex usage.
-            String[] temp = split(fileContent,"\\s+|\n+|\t+");
+            String[] temp = split(fileContent, "\\s+|\n+|\t+");
 
             uniqueWords.addAll(Arrays.asList(temp));
 

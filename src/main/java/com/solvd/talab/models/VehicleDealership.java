@@ -3,7 +3,6 @@ package com.solvd.talab.models;
 import com.solvd.talab.interfaces.SpeedProcessor;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 
 import static com.solvd.talab.common.LoggerClass.LOGGER;

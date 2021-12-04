@@ -4,10 +4,6 @@ import com.solvd.talab.enums.CarWashType;
 import com.solvd.talab.generics.GenericLinkedList;
 import com.solvd.talab.interfaces.WashProcessor;
 
-import java.util.logging.Level;
-
-import static com.solvd.talab.common.LoggerClass.LOGGER;
-
 public class CarWash {
     private String name;
     private String address;

@@ -5,6 +5,10 @@ import com.solvd.talab.enums.CarModel;
 import com.solvd.talab.exceptions.InvalidCharacter;
 import com.solvd.talab.exceptions.NegativeSpeedException;
 
+import java.util.logging.Level;
+
+import static com.solvd.talab.common.LoggerClass.LOGGER;
+
 public class Car extends Vehicle {
 
 
@@ -40,27 +44,27 @@ public class Car extends Vehicle {
     }
 
     public void reverse() {
-        System.out.println("The car its making reverse, use your rear-view mirrors");
+        LOGGER.log(Level.INFO, "The car its making reverse, use your rear-view mirrors");
     }
 
     //Override methods
     @Override
     public void run() {
-        System.out.println("The " + engine + " car its running");
+        LOGGER.log(Level.INFO, "The " + engine + " car its running");
     }
 
     public void run(float speed) {
-        System.out.println("the car is running at: " + speed + "km/h");
+        LOGGER.log(Level.INFO, "the car is running at: " + speed + "km/h");
     }
 
     @Override
     public void stop() {
-        System.out.println("The " + engine + " car was stopped");
+        LOGGER.log(Level.INFO, "The " + engine + " car was stopped");
     }
 
     @Override
     public void changeWheels(int wheels) {
-        System.out.println("the car has" + wheels + " new wheels");
+        LOGGER.log(Level.INFO, "the car has" + wheels + " new wheels");
     }
 }
 

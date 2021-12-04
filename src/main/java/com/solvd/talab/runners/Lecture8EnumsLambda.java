@@ -6,15 +6,12 @@ import com.solvd.talab.enums.CarWashType;
 import com.solvd.talab.exceptions.InvalidCharacter;
 import com.solvd.talab.models.Car;
 import com.solvd.talab.models.CarWash;
-import com.solvd.talab.models.Vehicle;
 import com.solvd.talab.models.VehicleDealership;
 
-import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.logging.Level;
-import java.util.Arrays;
 
 import static com.solvd.talab.common.LoggerClass.LOGGER;
 
