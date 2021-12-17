@@ -22,7 +22,7 @@ public class ConnectionPool {
 
     public static ConnectionPool getInstance() {
         if (instance == null) {
-            instance = new ConnectionPool(5);
+            instance = new ConnectionPool(4);
         }
         return instance;
     }
@@ -40,6 +40,9 @@ public class ConnectionPool {
 
     }
 
+    public Boolean isFull(){
+        return getConcurrentMapSize() >= limitConnections;
+    }
     public int getConcurrentMapSize() {
         return concurrentMap.size();
     }

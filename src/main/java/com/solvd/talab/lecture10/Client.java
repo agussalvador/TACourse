@@ -15,20 +15,19 @@ public class Client {
     public static void main(String[] args) throws InterruptedException {
         ArrayList<Thread> threads = new ArrayList<>();
         //Adding 2 simple threads
-        threads.add(new SimpleThread("Simple Thread: 1"));
-        threads.add(new SimpleThread("Simple Thread: 2"));
-        for (int i = 3; i < 7; i++) {
+//        threads.add(new SimpleThread("Simple Thread: 1"));
+//        threads.add(new SimpleThread("Simple Thread: 2"));
+        for (int i = 0; i < 7; i++) {
             //Adding 5 runnable threads
             threads.add(new Thread(new SimpleRunnable("Runnable Thread: " + i)));
         }
         for (Thread t : threads) {
-            if (connectionPool.getConcurrentMapSize() < 5) {
-                t.start();
-            } else {
-                LOGGER.log(Level.INFO, "Thread limit: thread is waiting: " + t.getName());
-                Thread.sleep(500);
+            Thread.sleep(400);
+            while(connectionPool.isFull()) {
+                LOGGER.log(Level.INFO, "!!!!!!!Thread limit: thread is waiting: " + t.getName());
+                t.join();
             }
-
+            t.start();
         }
     }
 
@@ -36,7 +35,7 @@ public class Client {
 
         Connection connection = connectionPool.connect(name);
 
-        Thread.sleep(1000);
+        Thread.sleep(5000);
 
         connectionPool.disconnect(name);
 
