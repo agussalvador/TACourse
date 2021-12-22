@@ -16,12 +16,24 @@ public abstract class Vehicle implements IVehicleMovement, IVehicleMaintenance {
     private float maxSpeed;
     private float kilometers;
 
+    public Vehicle() {
+
+    }
+
     public float getMaxSpeed() {
         return maxSpeed;
     }
 
     public float getKilometers() {
         return kilometers;
+    }
+
+    public void setMaxSpeed(float maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    public void setKilometers(float kilometers) {
+        this.kilometers = kilometers;
     }
 
     //Final Attribute

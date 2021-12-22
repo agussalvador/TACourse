@@ -27,6 +27,10 @@ public class Car extends Vehicle {
         this.model = model;
     }
 
+    public Car() {
+        super();
+    }
+
     public Enum<CarEngineType> getEngine() {
         return engine;
     }
@@ -65,6 +69,14 @@ public class Car extends Vehicle {
     @Override
     public void changeWheels(int wheels) {
         LOGGER.log(Level.INFO, "the car has" + wheels + " new wheels");
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "engine=" + engine +
+                ", model=" + model +
+                '}' + super.toString();
     }
 }
 
