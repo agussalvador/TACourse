@@ -23,7 +23,7 @@ public class Client {
         }
         for (Thread t : threads) {
             Thread.sleep(400);
-            while(connectionPool.isFull()) {
+            while (connectionPool.isFull()) {
                 LOGGER.log(Level.INFO, "!!!!!!!Thread limit: thread is waiting: " + t.getName());
                 t.join();
             }

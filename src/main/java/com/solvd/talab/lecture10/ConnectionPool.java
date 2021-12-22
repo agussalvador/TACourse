@@ -40,9 +40,10 @@ public class ConnectionPool {
 
     }
 
-    public Boolean isFull(){
+    public Boolean isFull() {
         return getConcurrentMapSize() >= limitConnections;
     }
+
     public int getConcurrentMapSize() {
         return concurrentMap.size();
     }

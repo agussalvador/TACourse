@@ -4,7 +4,7 @@ use tacourse;
 
 create table Vehicles(	
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	license_plate VARCHAR(30) NOT NULL,
+	license_plate VARCHAR(30) UNIQUE NOT NULL,
     maxspeed float(4) NOT NULL,
     kilometers float(4) NOT NULL
 );
@@ -14,14 +14,14 @@ create table Cars(
     engine ENUM('ELECTRIC','HYBRID','COMBUSTION'),
     model ENUM('FIAT','FORD','RENAULT','FERRARI'),
     id_vehicle INT not null,
-    foreign key (id_vehicle) references Vehicles(id)
+    foreign key (id_vehicle) references Vehicles(id) on delete cascade
 );
 
 create table Motorbikes(
 	id INT AUTO_INCREMENT PRIMARY KEY,
     type ENUM('CROSS','RALLY','CHOPPER','SPORT','TOURING','SCOOTER'),
     id_vehicle INT not null,
-    foreign key (id_vehicle) references Vehicles(id)
+    foreign key (id_vehicle) references Vehicles(id) on delete cascade
 );
 
 create table CarWash(
