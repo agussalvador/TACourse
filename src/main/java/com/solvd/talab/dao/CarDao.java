@@ -45,7 +45,6 @@ public class CarDao implements ICrud<Car> {
                 c.setKilometers(rs.getFloat("kilometers"));
             }
         } catch (SQLException e) {
-            LOGGER.info(e.getMessage());
         }
 
         return c;
@@ -58,6 +57,13 @@ public class CarDao implements ICrud<Car> {
 
     @Override
     public void delete(int id) {
-
+        String query = "delete from cars where id = ?";
+        try {
+            stmt=con.prepareStatement(query);
+            stmt.setInt(1,id);
+            rs=stmt.executeQuery();
+        } catch (SQLException e) {
+            LOGGER.info(e.getMessage());
+        }
     }
 }
